@@ -29,41 +29,29 @@
                 android:layout_marginBottom="8dp"
                 android:text="@string/name_drink" />
 
-        <LinearLayout
-                android:layout_width="wrap_content"
+        <TextView
+                android:id="@+id/txCategory"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                        android:id="@+id/txCategory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/category" />
-                <TextView
-                        android:id="@+id/txId_drink"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/id_drink" />
-
-                <TextView
-                        android:id="@+id/txId_value_drink"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/value_id" />
-        </LinearLayout>
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/category" />
 
         <TextView
-                android:id="@+id/txDate"
+                android:id="@+id/txId_value_drink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/value_id" />
+
+
+        <TextView
+                android:id="@+id/txalcoholic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -89,7 +77,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/ingre_1" />
+                android:text="@string/ingre_1"
+                android:visibility="visible"
+        />
 
         <TextView
                 android:id="@+id/txIngre_2"
@@ -98,7 +88,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/ingre_2" />
+                android:text="@string/ingre_2"
+                android:visibility="visible"
+        />
 
         <TextView
                 android:id="@+id/txIngre_3"
@@ -107,7 +99,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/ingre_3" />
+                android:text="@string/ingre_3"
+                android:visibility="visible"/>
 
         <TextView
                 android:id="@+id/txIngre_4"
@@ -116,7 +109,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/ingre_4" />
+                android:text="@string/ingre_4"
+                android:visibility="visible"/>
 
         <TextView
                 android:id="@+id/txInstruction"

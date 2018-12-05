@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DrinksApp</string>
+    <string name="img_drink">Imagem relacionada à bebida</string>
+    <string name="drink">Drink</string>
+    <string name="name_drink">Nome da Bebida</string>
+    <string name="category">Categoria</string>
+    <string name="id_drink">Id:</string>
+    <string name="value_id">Valor do id</string>
+    <string name="alcohlic">Bebida Alcoólica</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="ingre_1">Ingredientes</string>
+    <string name="ingre_2">Ingredientes</string>
+    <string name="ingre_3">Ingredientes</string>
+    <string name="ingre_4">Ingredientes</string>
+    <string name="instruction">Instrução</string>
+
+</resources>

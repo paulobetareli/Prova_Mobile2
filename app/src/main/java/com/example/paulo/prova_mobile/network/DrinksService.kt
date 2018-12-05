@@ -1,5 +1,6 @@
 package com.example.paulo.prova_mobile.network
 
+import com.example.paulo.prova_mobile.entities.Drink
 import com.example.paulo.prova_mobile.entities.DrinkList
 import retrofit2.Call
 import retrofit2.http.GET
@@ -15,5 +16,5 @@ interface DrinksService {
     fun getAllDrinksAlcoholic(): Call<DrinkList>
 
     @GET("${API_KEY}/lookup.php?i=")
-    fun getDrinksDetailsById(@Query("idDrink") id: Int): Call<DrinkList>
+    fun getDrinksDetailsById(@Query("i") id: Int): Call<DrinkList>
 }

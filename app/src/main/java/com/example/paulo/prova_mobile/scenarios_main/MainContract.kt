@@ -8,11 +8,13 @@ interface MainContract {
         fun ShowList(drinks: List<Drink>)
         fun hideLoading()
         fun showLoading()
+        fun ListDescription(drink: Drink)
 
     }
 
     interface Presenter{
         fun onLoadList()
+        fun onClickDrink(drinks: Drink )
     }
 
 }

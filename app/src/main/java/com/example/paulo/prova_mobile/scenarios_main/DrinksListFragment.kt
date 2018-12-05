@@ -1,6 +1,7 @@
 package com.example.paulo.prova_mobile.scenarios_main
 
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.example.paulo.prova_mobile.R
 import com.example.paulo.prova_mobile.entities.Drink
 import kotlinx.android.synthetic.main.fragment_drinks_list.*
 import java.lang.NullPointerException
+import java.lang.RuntimeException
 
 
 /**
@@ -34,6 +36,8 @@ class DrinksListFragment : Fragment() {
             }
         }
 
+    var listener: onfragmentInteractionListener? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,9 +54,7 @@ class DrinksListFragment : Fragment() {
         activity?.let{
             val adapter = DrinkAdapter(it, drinks)
             adapter.setOnItemClickListener {position ->
-                val openBrowser = Intent(Intent.ACTION_VIEW)
-                openBrowser.data = Uri.parse(drinks.get(position).strDrinkThumb)
-                startActivity(openBrowser)
+                listener?.onfragmentInteraction(drinks[position])
             }
 
             rvNews.adapter = adapter
@@ -63,6 +65,21 @@ class DrinksListFragment : Fragment() {
 
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+
+        if(context is DrinksListFragment.onfragmentInteractionListener){
+            listener = context
+        }else{
+            throw RuntimeException(context.toString() + "deve implementar DrinksListFragment.onfragmentInteractionListener")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
 
     fun getDrinksList(): ArrayList<Drink>{
         val drinks = arguments?.getSerializable(ARG_LIST) as ArrayList<Drink>
@@ -71,6 +88,10 @@ class DrinksListFragment : Fragment() {
         }else {
             throw NullPointerException("Lista de bebidas não pode ser nula")
         }
+    }
+
+    interface onfragmentInteractionListener{
+        fun onfragmentInteraction(drink: Drink)
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.paulo.prova_mobile.scenarios_main
 
+import com.example.paulo.prova_mobile.entities.Drink
 import com.example.paulo.prova_mobile.entities.DrinkList
 import com.example.paulo.prova_mobile.network.RetrofitInicializer
 import retrofit2.Call
@@ -30,7 +31,29 @@ class MainPresenter(val view : MainContract.View) : MainContract.Presenter {
                 }
             }
         })
-
-       // val callDrinkDescription = drinksService.getDrinksDetailsById("idDrink")
     }
+
+    override fun onClickDrink(drinks: Drink){
+
+        view.showLoading()
+
+        val drinksService = RetrofitInicializer().createDrinksService()
+
+        val call =  drinksService.getDrinksDetailsById(drinks.idDrink)
+
+        call.enqueue(object : Callback<DrinkList> {
+            override fun onFailure(call: Call<DrinkList>, t: Throwable) {
+                view.showMessage("FALHA NA CONEXÃO")
+            }
+
+            override fun onResponse(call: Call<DrinkList>, response: Response<DrinkList>) {
+                if(response.body() != null){
+                    view.ListDescription(response.body()!!.drinks.first())
+                }else{
+                    view.showMessage("NENHUM DRINK RETORNADO")
+                }
+            }
+        })
+    }
+
 }
